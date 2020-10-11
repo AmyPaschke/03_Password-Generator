@@ -48,7 +48,7 @@ while (inputValid = 1) {
   let passwordLength = parseInt(passwordString);
 
   for (let n = 0; n < passwordLength; n++) {
-    let password = a
+    password = password += something //?
     
   }
 }
@@ -72,8 +72,6 @@ for (let i = 0; i <= passwordLength; i++) {
   password = password + passwordValues.charAt(Math.floor(Math.random * Math.floor(passwordValues.length - 1))); //this only searches within the const, and does not take into account the selections the selector can make
     
 }
-
-password += //function call
 
 //randomize how math.random works and then assign a random number to a variable? 
 
