@@ -13,6 +13,15 @@ function writePassword() {
 // Add event listener to generate button- when user clicks button, run function
 generateBtn.addEventListener("click", writePassword);
 
+//function to copy password to clipboard
+function copyPassword() {
+
+  document.getElementById("password").select();
+
+  document.execCommand("Copy");
+
+  alert("Password has been copied!");
+}
 
 /*--------------------------------------- */
 
@@ -23,20 +32,39 @@ do {
     if (passwordString.isNan()) {
       alert("Please enter a number between 8-128.");
     } else {
+      if (passwordString > 7 && passwordString < 129) {
+       inputValid = 0;
+      } else {
+        alert("Please enter a number between 8-128.");
+      }
+    }
+  }
 
-      inputValid = 0;
+while (inputValid = 1) { 
+
+  let password = "";
+
+  //changes user input from string to intiger
+  let passwordLength = parseInt(passwordString);
+
+  for (let n = 0; n < passwordLength; n++) {
+    let password = a
+    
   }
 }
 
-while 
+/*variables used to generate password based on previous criteria */
+function lowercaseCharacter() {
+  let lowercase = "abcdefghijklmnopqrstuvwxyz";
+}
 
+function uppercaseCharacter() {
+  let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+}
 
-//changes user input from string to intiger
-let passwordLength = parseInt(passwordString);
-
-/*variable used to generate password based on previous criteria
-0-25 is lowercase, 26-51 is upper case, 52 - 83 are special characters*/
-const passwordValues = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !#$%&/'()*+,-./:;<=>?@[]^_`{|}~";
+function specialCharacter() {
+  let special = " !#$%&/'()*+,-./:;<=>?@[]^_`{|}~";
+}
 
 //add in an array to the i <= to account for the length given in the prompt
 //for loop used to make the password
