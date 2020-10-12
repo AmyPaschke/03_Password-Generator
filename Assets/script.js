@@ -24,8 +24,9 @@ function copyPassword() {
 }
 
 /*--------------------------------------- */
-
+//create the generate password function-- ?
 function generatePassword() {
+
   let inputValid = 1;
   // the needed prompts and confirms for the password
 
@@ -46,17 +47,18 @@ function generatePassword() {
     }
 
   while (inputValid === 1);
-}
 
-if (inputValid === 0) {
+  //inside the  do/while statement the inputValid changes from 1 to 0 once a number between 8 - 128 is selected
+  if (inputValid === 0) {
 
-  let password = "";
-  
-  for (let n = 0; n < passwordLength; n++) {
-    password = password += something //?
+    let password = "";
     
+    for (let n = 0; n < passwordLength; n++) {
+      password = password += something //?
+      
+    }
+  
   }
-
 }
 
 
