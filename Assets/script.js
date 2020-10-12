@@ -25,33 +25,42 @@ function copyPassword() {
 
 /*--------------------------------------- */
 
-let inputValid = 1;
-// the needed prompts and confirms for the password
-do {
-  let passwordString = prompt("Please indicate the length you want for your password (between 8-128.");
-    if (passwordString.isNan()) {
-      alert("Please enter a number between 8-128.");
-    } else {
-      if (passwordString > 7 && passwordString < 129) {
-       inputValid = 0;
-      } else {
-        alert("Please enter a number between 8-128.");
-      }
-    }
-  }
-
-while (inputValid = 1) { 
-
-  let password = "";
+function generatePassword() {
+  let inputValid = 1;
+  // the needed prompts and confirms for the password
 
   //changes user input from string to intiger
   let passwordLength = parseInt(passwordString);
+    
+  do {
+    let passwordString = prompt("Please indicate the length you want for your password (between 8-128.");
+      if (isNaN(passwordLength)) {
+        alert("Please enter a number between 8-128.");
+      } else {
+        if (passwordLength > 7 && passwordLength < 129) {
+        inputValid = 0;
+        } else {
+          alert("Please enter a number between 8-128.");
+        }
+      }
+    }
 
+  while (inputValid === 1);
+}
+
+if (inputValid === 0) {
+
+  let password = "";
+  
   for (let n = 0; n < passwordLength; n++) {
     password = password += something //?
     
   }
+
 }
+
+
+
 
 /*variables used to generate password based on previous criteria */
 function lowercaseCharacter() {
