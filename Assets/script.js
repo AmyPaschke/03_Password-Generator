@@ -24,13 +24,25 @@ function copyPassword() {
 }
 
 /*--------------------------------------- */
-//create the generate password function-- ?
+
+//function to generate password characters, lacking choice
+function passEverything(length) {
+  let password = '';
+  let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&/'()*+,-./:;<=>?@[]^_`{|}~";
+  let charactersLength = characters.length;
+  for ( let i = 0; i < length; i++ ) {
+     password += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return password;
+}
+
+
+//create the generate password function--
 function generatePassword() {
 
   let inputValid = 1;
 
   let passwordLength = null;
-  // the needed prompts and confirms for the password
 
   /*changes user input from string to intiger
   let passwordLength = parseInt(passwordString); */
@@ -52,30 +64,14 @@ function generatePassword() {
   //inside the  do/while statement the inputValid changes from 1 to 0 once a number between 8 - 128 is selected, which is what this if statement is looking for
   if (inputValid === 0) {
 
-    let password = "";
-    let n = 0;
-    //while password is less than n, do these things
-    while (n < passwordLength) {
-      n++;
-      console.log("Hi buddy " + n);
-      password = password += something //?
+   passEverything();
       
     }
-  }
-}
-
-function lowerUpperNumb(length) {
-  let password = "";
-  let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&/'()*+,-./:;<=>?@[]^_`{|}~";
-  let charactersLength = characters.length;
-  for ( let i = 0; i < length; i++ ) {
-     password += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return password;
 }
 
 
-/*variables used to generate password based on previous criteria */
+
+/*variables used to generate password based on previous criteria 
 function lowercaseCharacter() {
   let lowercase = "abcdefghijklmnopqrstuvwxyz";
 }
@@ -100,4 +96,4 @@ for (let i = 0; i <= passwordLength; i++) {
 }
 
 //randomize how math.random works and then assign a random number to a variable? 
-
+*/
