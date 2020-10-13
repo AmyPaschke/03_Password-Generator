@@ -54,7 +54,7 @@ function generatePassword() {
 
     let password = "";
     let n = 0;
-    //while password is less than variable, do these things
+    //while password is less than n, do these things
     while (n < passwordLength) {
       n++;
       console.log("Hi buddy " + n);
@@ -64,7 +64,15 @@ function generatePassword() {
   }
 }
 
-
+function lowerUpperNumb(length) {
+  let password = "";
+  let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&/'()*+,-./:;<=>?@[]^_`{|}~";
+  let charactersLength = characters.length;
+  for ( let i = 0; i < length; i++ ) {
+     password += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return password;
+}
 
 
 /*variables used to generate password based on previous criteria */
