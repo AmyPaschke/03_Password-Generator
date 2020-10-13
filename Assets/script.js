@@ -36,27 +36,28 @@ function generatePassword() {
   let passwordLength = parseInt(passwordString); */
     
   do {
-    let passwordString = prompt("Please indicate the length you want for your password (between 8-128).");
+    let passwordString = prompt("Please indicate the length you want for your password between 8-128 characters.");
       if (isNaN(passwordString)) {
         alert("Please enter a number between 8-128.");
       } else {
           if (passwordString > 7 && passwordString < 129) {
           inputValid = 0;
           passwordLength = parseInt(passwordString);
-          return passwordLength;
           } else {
             alert("Please enter a number between 8-128.");
           }
       }
-    }
-  while (inputValid === 1);
+    } while (inputValid === 1);
 
   //inside the  do/while statement the inputValid changes from 1 to 0 once a number between 8 - 128 is selected, which is what this if statement is looking for
   if (inputValid === 0) {
 
     let password = "";
-    
-    for (let n = 0; n < passwordLength; n++) {
+    let n = 0;
+    //while password is less than variable, do these things
+    while (n < passwordLength) {
+      n++;
+      console.log("Hi buddy " + n);
       password = password += something //?
       
     }
@@ -73,6 +74,10 @@ function lowercaseCharacter() {
 
 function uppercaseCharacter() {
   let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+}
+
+function numberCharacter() {
+  let passwordNumber = "1234567890";
 }
 
 function specialCharacter() {
