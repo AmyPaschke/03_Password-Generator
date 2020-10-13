@@ -45,7 +45,7 @@ function getPasswordOptions() {
       }
     } while (inputValid === 1);
 
-  let hasSpecialCharacters = confirm("Do you want special character?");
+  let hasSpecialCharacters = confirm("Do you want special characters?");
   let hasLowercaseCharacters = confirm("Do you want lowercase characters?");
   let hasUppercaseCharacters = confirm("Do you want uppercase characters?");
   let hasNumericCharacters = confirm("Do you want numbers?");
