@@ -28,27 +28,30 @@ function copyPassword() {
 function generatePassword() {
 
   let inputValid = 1;
+
+  let passwordLength = null;
   // the needed prompts and confirms for the password
 
-  //changes user input from string to intiger
-  let passwordLength = parseInt(passwordString);
+  /*changes user input from string to intiger
+  let passwordLength = parseInt(passwordString); */
     
   do {
-    let passwordString = prompt("Please indicate the length you want for your password (between 8-128.");
-      if (isNaN(passwordLength)) {
+    let passwordString = prompt("Please indicate the length you want for your password (between 8-128).");
+      if (isNaN(passwordString)) {
         alert("Please enter a number between 8-128.");
       } else {
-        if (passwordLength > 7 && passwordLength < 129) {
-        inputValid = 0;
-        } else {
-          alert("Please enter a number between 8-128.");
-        }
+          if (passwordString > 7 && passwordString < 129) {
+          inputValid = 0;
+          passwordLength = parseInt(passwordString);
+          return passwordLength;
+          } else {
+            alert("Please enter a number between 8-128.");
+          }
       }
     }
-
   while (inputValid === 1);
 
-  //inside the  do/while statement the inputValid changes from 1 to 0 once a number between 8 - 128 is selected
+  //inside the  do/while statement the inputValid changes from 1 to 0 once a number between 8 - 128 is selected, which is what this if statement is looking for
   if (inputValid === 0) {
 
     let password = "";
@@ -57,7 +60,6 @@ function generatePassword() {
       password = password += something //?
       
     }
-  
   }
 }
 
