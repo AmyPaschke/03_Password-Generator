@@ -25,11 +25,14 @@ function copyPassword() {
 
 /*--------------------------------------- */
 
+//starting variables that define the string options used for our password generator
+//the .split() divides the string into an array which we can use later in the generatePassword() function
 let lowercase = "abcdefghijklmnopqrstuvwxyz".split("");
 let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 let passwordNumber = "1234567890".split("");
 let special = " !#$%&/'()*+,-./:;<=>?@[]^_`{|}~".split("");
 
+//this will assure someone has entered a number (between 8 - 128)
 function getPasswordOptions() {
   do {
     let passwordString = prompt("Please indicate the length you want for your password between 8-128 characters.");
@@ -43,18 +46,21 @@ function getPasswordOptions() {
             alert("Please enter a number between 8-128.");
           }
       }
-    } while (inputValid === 1);
+  } while (inputValid === 1);
 
+  //we then save the user's confirm answer as a variable
   let hasSpecialCharacters = confirm("Do you want special characters?");
   let hasLowercaseCharacters = confirm("Do you want lowercase characters?");
   let hasUppercaseCharacters = confirm("Do you want uppercase characters?");
   let hasNumericCharacters = confirm("Do you want numbers?");
 
+  //this assures that the user has selected at least one character option
   if (hasSpecialCharacters === false && hasLowercaseCharacters === false && hasNumericCharacters === false && hasUppercaseCharacters === false) {
     alert("Please confirm at least one option for your password.");
     return;
   }
 
+  //this is an object which we call "passwordOptions", this makes our arrays an object keyword which we can call upon later when we need a particular character or number
   const passwordOptions = {
     passwordLength: passwordLength,
     hasLowercaseCharacters: hasLowercaseCharacters,
@@ -63,30 +69,18 @@ function getPasswordOptions() {
     hasSpecialCharacters: hasSpecialCharacters
   }
 
+  //the return makes sure we save the character being pulled from our passwordOptions object, otherwise the computer will generate a number but not save it anywhere
   return passwordOptions;
 }
 
+//this function will be used for the generatePassword() function which will feed the previous variables in and return a random index character
 function getRandom(arr) {
   let randomIndex = Math.floor(Math.random() * arr.length);
   let randomElement = arr[randomIndex];
   return randomElement;
 }
 
-
-
-//function to generate password characters, lacking choice
-function passEverything(length) {
-  let password = '';
-  let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&/'()*+,-./:;<=>?@[]^_`{|}~";
-  let charactersLength = characters.length;
-  for ( let i = 0; i < length; i++ ) {
-     password += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return password;
-}
-
-
-//create the generate password function--
+//function used to generate the password information
 function generatePassword() {
   let result = [];
   let possibleCharacters = [];
@@ -117,38 +111,10 @@ function generatePassword() {
     let randomCharacter = getRandom(possibleCharacters);
     result.push(randomCharacter);
   }
-  for (let kittens = 0; kittens < guaranteedCharacters.length; kittens++) {
-    result[kittens] = guaranteedCharacters[kittens];    
+  for (let i = 0; i < guaranteedCharacters.length; i++) {
+    result[i] = guaranteedCharacters[i];    
   }
+
+  //join method is used to combine string elements together, the separation between the strings is defined within the (), in our case is "", which is nothing
   return result.join("");
 }
-
-
-
-
-/*variables used to generate password based on previous criteria 
-function lowercaseCharacter() {
-  
-}
-
-function uppercaseCharacter() {
-  
-}
-
-function numberCharacter() {
-  
-}
-
-function specialCharacter() {
-  
-}
-
-//add in an array to the i <= to account for the length given in the prompt
-//for loop used to make the password
-for (let i = 0; i <= passwordLength; i++) {
-  password = password + passwordValues.charAt(Math.floor(Math.random * Math.floor(passwordValues.length - 1))); //this only searches within the const, and does not take into account the selections the selector can make
-    
-}
-
-//randomize how math.random works and then assign a random number to a variable? 
-*/
